@@ -1,0 +1,12 @@
+{% extends 'sn/base.html' %}
+
+{% block content %}
+        <h2>Register</h2>
+        <form action="register" method="Post"> 
+                {% csrf_token %}
+                <table> 
+                        {{register_form.as_table}}
+                        <th><input type="submit" value="Submit" name="register" /></th>
+                </table> 
+        </form> 
+{% endblock %}

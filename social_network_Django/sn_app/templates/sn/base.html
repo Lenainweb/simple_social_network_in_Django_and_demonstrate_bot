@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Lena's network</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+    <body>
+    	<body>
+		    <div class="page-header">
+				
+				{% if user.is_authenticated %}
+					{{user}}
+					<a href="{%url 'post_new'%}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+					<h1><a href="{%url 'home'%}">Lena's network</a></h1>
+					<h1><a href="{%url 'logout'%}">Logout</a></h1>					
+				{% else%}
+					<h1><a href="{%url 'login'%}">Log in</a></h1>
+					<h1><a href="{%url 'register'%}">Register</a></h1>
+    			{% endif %}		        
+		    </div>
+		    <div class="content container">
+		        <div class="row">
+		            <div class="col-md-8">
+			            {% block content %}
+			            {% endblock %}
+		            </div>
+		        </div>
+		    </div>
+    </body>
+</html>

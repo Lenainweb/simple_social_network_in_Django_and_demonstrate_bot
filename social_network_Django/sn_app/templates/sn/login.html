@@ -1,0 +1,15 @@
+{% extends 'sn/base.html' %}
+
+{% block content %}
+        <h2>Log in</h2>
+        <h3><a href="{%url 'register'%}">Or register</a></h3>
+        <!-- <form action="sing-in" method="Post">  -->
+                <form action="{%url 'login'%}" method="Post">
+                {% csrf_token %}
+                <table> 
+                        {{login_form.as_table}}
+                        <th><input type="submit" value="Submit"name="login"/></th>
+                </table>
+        </form>  
+
+{% endblock %}

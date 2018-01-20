@@ -1,0 +1,23 @@
+<!-- sn_app/templates/index.html -->
+{% extends 'sn/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <h2>{{ post.author }}</h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <form action="{%url 'post_detail' pk=post.pk %}" method="Post">
+            {% csrf_token %}
+            <p> <button type="submit" value="{{post.pk}}" name="Like" title="Like:) is {{ post.likes }}">Like:) is {{ post.likes }}
+                </button></p>
+        </form>
+        <form action="{%url 'post_detail' pk=post.pk %}" method="Post">
+            {% csrf_token %}
+            <p> <button type="submit" value="{{post.pk}}" name="Unlike" title="Unlike( is {{ post.unlikes }}">"Unlike( is {{ post.unlikes }}
+                </button></p>
+        </form>
+    </div>
+    {% endfor %}
+{% endblock %}

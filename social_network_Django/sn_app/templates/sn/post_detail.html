@@ -1,0 +1,18 @@
+{% extends 'sn/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        
+		<h1>{{ post.title }}</h1>
+		<h2>{{ post.author }}</h2>
+		<p>{{ post.text|linebreaksbr }}</p>
+		<p> Like:) is {{ post.likes }} </p>
+		<p>Unlike( is {{ post.unlikes }} </p>
+
+    </div>
+{% endblock %}
