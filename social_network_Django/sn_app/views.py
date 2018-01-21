@@ -99,7 +99,8 @@ class RegisterView(TemplateView):
         if register_form.is_valid():
             new_user = register_form.save()
             new_user.save()
-            login_user(request)                
+            user_au = authenticate(username=request.POST['username'], password=request.POST['password1'])
+            login(request, user_au)               
             return redirect('home')
         return render(request, 'sn/register.html', context={'register_form': register_form})   
 
