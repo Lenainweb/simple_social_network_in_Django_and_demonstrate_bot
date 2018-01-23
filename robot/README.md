@@ -1,4 +1,4 @@
-# Demonstrate bot jf the simple social network in Django 
+# Demonstrate bot of the simple social network in Django 
 ![python3.x](https://img.shields.io/badge/python-3.x-brightgreen.svg) 
 
 ## Dependencies
